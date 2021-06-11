@@ -25,11 +25,7 @@ func Init(version string, alerter *alerter.Alerter,
 	factory resource.ResourceFactory,
 	ignore *filter.DriftIgnore) error {
 
-	if version == "" {
-		version = "4.4.0"
-	}
-
-	provider, err := NewGithubTerraformProvider(version, progress)
+	provider, err := NewGithubTerraformProvider(version, progress, ignore)
 	if err != nil {
 		return err
 	}
